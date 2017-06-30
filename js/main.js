@@ -1,36 +1,34 @@
 $(document).ready(function () {
-  var endPoint = 'https://api.themoviedb.org/3/'; // como uso muchas veces el endpoint, creo una variable y la concateno con los parametros ej: endPoint + 'configuration',
+  var endPoint = 'https://api.themoviedb.org/3/'; 
   var endPoint2 = 'https://api.themoviedb.org/3/search/movie?';
-  var baseURL; //creo la variable de la url de la imagen
-  var size;  // creo la variable del tamaño de la imagen
-  var apiKey = {api_key:'4798875c2c71d7e72aaea586d7202013'}; //e46d80d9b3b8f770fc8fed16379bbdb6
+  var baseURL; 
+  var size;  
+  var apiKey = {api_key:'4798875c2c71d7e72aaea586d7202013'}; 
   var $form = $('form');
   var options;
 
 $form.on('submit', function (e) {
-  e.preventDefault(); // previene que se actualice la pagina cuando submitea 
-  $(this).find('.searchText').attr('disabled','disabled');  // evitar que el usuario vuelva a submitear el formulario.
+  e.preventDefault(); 
+  $(this).find('.searchText').attr('disabled','disabled');  
   $(this).find('.boton').attr('disabled','disabled');
-  var value = $('.searchText').val()                  // agarrar el valor del input 
-  var query = { query: value }
+  var value = $('.searchText').val();                   
+  var query = { query: value };
   options = $.extend({}, apiKey, query); 
            
-   
   if(!value){
     alert("Debes llenar el campo seleccionado");
     $('.loading').hide();
-    $(this).find('.searchText').removeAttr('disabled' , 'disabled'); // habilita el boton luego del alert.
-    $(this).find('.boton').removeAttr('disabled' , 'disabled');
+    $(this).find('.searchText').removeAttr('disabled' , 'disabled'); 
   } 
   else  {
   busqueda()
-  $(this).find('.searchText').removeAttr('disabled' , 'disabled'); // habilita el boton luego del alert.
+  $(this).find('.searchText').removeAttr('disabled' , 'disabled'); 
   $(this).find('.boton').removeAttr('disabled' , 'disabled');
   }
 });
  
 
-$.get( endPoint + 'configuration', apiKey ) //  $.get() tipo de request para pegarle al endpoint (como ajax)
+$.get( endPoint + 'configuration', apiKey ) 
   .then(function (config) {                                     
     if (config && config.images) {
       if (config.images.base_url) {
@@ -43,12 +41,7 @@ $.get( endPoint + 'configuration', apiKey ) //  $.get() tipo de request para peg
                                    
   });
                                       
-                                   
-                                                        
-
-
-// hacer request
-
+                            
 function busqueda(){
   $('.loading').show();
   $.get (endPoint2 , options )
@@ -83,7 +76,7 @@ function busqueda(){
       }
     })
     .done(function() {
-      $(".loading").hide();   // (cuando llega el request) sacar logo de carga
+      $(".loading").hide();  
     })                                                 
 }
 
