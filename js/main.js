@@ -15,6 +15,7 @@ $form.on('submit', function (e) {
   var query = { query: value }
   options = $.extend({}, apiKey, query); 
            
+   
   if(!value){
     alert("Debes llenar el campo seleccionado");
     $('.loading').hide();
@@ -22,7 +23,9 @@ $form.on('submit', function (e) {
     $(this).find('.boton').removeAttr('disabled' , 'disabled');
   } 
   else  {
-  busqueda();
+  busqueda()
+  $(this).find('.searchText').removeAttr('disabled' , 'disabled'); // habilita el boton luego del alert.
+  $(this).find('.boton').removeAttr('disabled' , 'disabled');
   }
 });
  
@@ -36,7 +39,8 @@ $.get( endPoint + 'configuration', apiKey ) //  $.get() tipo de request para peg
       if (config.images.poster_sizes) {
         size = config.images.poster_sizes[4];
       }
-    }                               
+    }
+                                   
   });
                                       
                                    
@@ -61,7 +65,7 @@ function busqueda(){
           output += `
           <div class="col-md-3">
             <div class="well text-center jumbotron">
-              <img src="${image}" class="img-responsive pelis">
+              <img src="${image}" class="img-responsive pelis backup_picture">
               <h5>
                 <strong>${title}</strong>
               </h5>
@@ -72,13 +76,18 @@ function busqueda(){
           </div>
           `;
         })      
-        $('.movies').html(output);                              
+        $('.movies').html(output);  
+         $(".backup_picture").on("error", function(){
+          $(this).attr('src', 'images/NoPic.png');
+         });
       }
     })
     .done(function() {
       $(".loading").hide();   // (cuando llega el request) sacar logo de carga
     })                                                 
 }
+
+
 })
   
 

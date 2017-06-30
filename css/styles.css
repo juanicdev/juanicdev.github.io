@@ -35,7 +35,7 @@ button.boton {
 	width: 100%;
 	margin-top: 5px;
 	cursor: pointer;
-	font-size:20px;
+	font-size: 100%;
 	color: #FFFFFF;
 }
 
@@ -97,5 +97,23 @@ div.loading {
 	.movies .col-md-3 img {
 		height: 240px;
 	}
+
+	img.img-responsive.pelis .backup_picture {
+		width: 100%;
+		height: auto;
+		box-sizing: content-box;
+	}
+
+@media screen and (min-width: 360px) {
+
+		img.img-responsive.pelis .backup_picture {
+		width: 100%;
+		height: auto;
+	}
+
+	button.boton{
+		font-size:18px;
+	}
+}
 
 }
