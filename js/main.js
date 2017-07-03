@@ -19,6 +19,7 @@ $form.on('submit', function (e) {
     alert("Debes llenar el campo seleccionado");
     $('.loading').hide();
     $(this).find('.searchText').removeAttr('disabled' , 'disabled'); 
+    $(this).find('.boton').removeAttr('disabled' , 'disabled');
   } 
   else  {
   busqueda()
