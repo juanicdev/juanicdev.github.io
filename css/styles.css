@@ -1,0 +1,119 @@
+.wrapper img.wallpaper {
+	position: fixed;
+	width: 100%;
+}
+
+nav {
+	margin-bottom: 40px;
+}
+
+.movies img {
+	width: 100%;
+	height: auto;
+}
+
+.col-md-3 .jumbotron {
+	box-sizing: content-box;
+	display: grid;
+	padding: 20px;
+	background-color: rgb(33,37,40);
+}
+
+.navbar-header .linkIndex {
+	color: white;
+}
+
+.pelis {
+	border-radius: 5px;
+}
+
+a {
+	align-self: center;
+}
+
+button.boton {
+	width: 100%;
+	margin-top: 5px;
+	cursor: pointer;
+	font-size: 100%;
+	color: #FFFFFF;
+}
+
+.btn-primary {
+	background-color: rgb(143,29,28);
+	border-color: rgba(0,0,0,0);
+}
+
+.btn-primary:hover {
+	background-color: #460404;
+	border-color: rgba(0,0,0,0);
+}
+
+
+.btn-primary:disabled {
+	background-color: rgb(143,29,28);
+	border-color: rgba(0,0,0,0);
+}
+
+
+h3 {
+	font-family: 'Allerta Stencil', sans-serif;
+}
+
+h5 {
+	margin: 10px;
+	overflow: hidden;
+	font-family: 'Josefin Slab', serif;
+}
+
+h5:hover {
+	overflow:visible;
+}
+
+div.jumbotron {
+	background-color:  rgba(33,37,40, 0.50);
+}
+
+div.loading {
+  background-color: rgba(115, 115, 115, 0.5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-image: url("../images/ring.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+@media (min-width: 960px) {
+	
+	.movies .col-md-3 .well {
+		height: 390px;
+	}
+
+
+	.movies .col-md-3 img {
+		height: 240px;
+	}
+
+	img.img-responsive.pelis .backup_picture {
+		width: 100%;
+		height: auto;
+		box-sizing: content-box;
+	}
+
+@media screen and (min-width: 360px) {
+
+		img.img-responsive.pelis .backup_picture {
+		width: 100%;
+		height: auto;
+	}
+
+	button.boton{
+		font-size:18px;
+	}
+}
+
+}
